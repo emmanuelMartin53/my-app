@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import HelloWorld from './components/welcome/HelloWorld';
+import Animal from './components/animals/Animal';
 
 function App() {
 
@@ -19,8 +20,7 @@ function App() {
       <h1>Vite + React</h1>
 
       <HelloWorld />
-
-
+      <Animal />
     </>
   )
 }
