@@ -1,4 +1,4 @@
-
+import chien from "../../assets/chien.jpg"
 
 const Animal = () => {
   return (
@@ -11,7 +11,11 @@ const Animal = () => {
             facilis voluptas enim necessitatibus incidunt.
             Sapiente autem alias veritatis deleniti non dolorem.
           </p>
-          <img src="https://pixabay.com/fr/images/download/dog-2556796_1920.jpg" alt="Image dun chien" />
+          <img
+              src={chien}
+              alt="Image d'un chien"
+          />
+
         </article>
         <input type="text" />
         <select name="" id=""></select>
