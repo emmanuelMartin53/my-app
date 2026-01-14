@@ -23,4 +23,18 @@ describe('Elements rendus correctement', () => {
     const imageElement = screen.getByRole('img');
     expect(imageElement).toBeInTheDocument();
   })
+
+  test('Input rendu correctement', () => {
+    render(<Animal />)
+    const imputElement = screen.getByRole('textbox');
+    expect(imputElement).toBeInTheDocument();
+  })
+
+  test('Select rendu correctement', () => {
+    render(<Animal />)
+    const selectElement = screen.getByRole('combobox');
+    expect(selectElement).toBeInTheDocument();
+  })
+
+
 })
