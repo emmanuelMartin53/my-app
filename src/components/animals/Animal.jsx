@@ -17,24 +17,39 @@ const Animal = () => {
               width="400"
           />
         </article>
-        <form action="">
+
+        <h2>Inscription</h2>
+
+        <form>
           <div>
-            <label htmlFor="name"></label>
-            <input type="text" id="name"/>
+            <label htmlFor="firstName">Prénom  </label>
+            <input type="text" id="firstName"/>
+
+            <label htmlFor="lastName">Nom  </label>
+            <input type="text" id="lastName"/>
           </div>
         </form>
         <div>
-         <div>
           <label htmlFor="pet-select">Choisissez un animal </label>
           <select name="pets" id="pet-select">
                 <option value="dog">Chien</option>
                 <option value="cat">Chat</option>
                 <option value="hamster">Hamster</option>
           </select>
-          </div>
         </div>
-        <input type="checkbox" name="" id="" />
-        <button></button>
+          <div>
+            <label>
+              <input type="checkbox" id="terms-and-conditions" />
+              J'accepte les termes et conditions
+            </label>
+          </div>
+          <div>
+            <label>
+              <input type="checkbox" id="newsletter" />
+             Je m'abonne à la news letter
+            </label>
+          </div>
+       <button>Valider</button>
       </div>
   )
 }
