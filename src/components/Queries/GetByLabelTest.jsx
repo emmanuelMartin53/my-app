@@ -11,10 +11,14 @@ const GetByLabelTest = () => {
             <label htmlFor="lastName">Nom  </label>
             <input type="text" id="lastName"/>
           </div>
-        </form>
         <div>
 
+          <div>
+            <label id="username-label">Username</label>
+            <input aria-labelledby="username-label" />
+          </div>
         </div>
+
           <div>
             <label>
               <input type="checkbox" id="terms-and-conditions" />
@@ -24,10 +28,22 @@ const GetByLabelTest = () => {
           <div>
             <label>
               <input type="checkbox" id="newsletter" />
-             Je m'abonne à la news letter
+             <span>Je m'abonne à la news letter</span>
             </label>
           </div>
-       <button>Valider</button>
+
+          <label>
+              Animal préféré
+              <input type="text" />
+          </label>
+          <label>
+              Animal préféré
+              <textarea />
+          </label>
+
+
+            <button>Valider</button>
+        </form>
       </div>
   )
 }
