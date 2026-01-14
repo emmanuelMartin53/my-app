@@ -1,12 +1,15 @@
 
 import './App.css'
-import Animal from './components/animals/Animal';
+import GetByRole from './components/Queries/GetByRole';
+import GetByLabelTest from './components/Queries/GetByLabelTest';
 
 function App() {
 
   return (
-
-      <Animal />
+    <div>
+      <GetByRole />
+      <GetByLabelTest />
+    </div>
 
   )
 }

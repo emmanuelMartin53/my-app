@@ -1,6 +1,6 @@
 import chien from "../../assets/chien.jpg"
 
-const Animal = () => {
+const GetByRole = () => {
   return (
       <div>
         <h1>Adopter un animal</h1>
@@ -54,4 +54,4 @@ const Animal = () => {
   )
 }
 
-export default Animal;
+export default GetByRole;

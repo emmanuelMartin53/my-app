@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react'
-import Animal from './Animal'
 import { describe, expect } from 'vitest'
+import GetByRole from './GetByRole'
 
 
 describe('GetByRole', () => {
 
   test('Elements rendus correctement', () => {
-    render(<Animal />)
+    render(<GetByRole />)
 
     const headingElementH1 = screen.getByRole("heading", {level: 1});
     expect(headingElementH1).toBeInTheDocument()
