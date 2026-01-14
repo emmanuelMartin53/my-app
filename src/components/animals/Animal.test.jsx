@@ -8,8 +8,11 @@ describe('GetByRole', () => {
   test('Elements rendus correctement', () => {
     render(<Animal />)
 
-    const headingElement = screen.getByRole("heading");
-    expect(headingElement).toBeInTheDocument()
+    const headingElementH1 = screen.getByRole("heading", {level: 1});
+    expect(headingElementH1).toBeInTheDocument()
+
+    const headingElementH2 = screen.getByRole("heading", {level: 2});
+    expect(headingElementH2).toBeInTheDocument()
 
     const articleElement = screen.getByRole('article');
     expect(articleElement).toBeInTheDocument();
@@ -17,14 +20,20 @@ describe('GetByRole', () => {
     const imageElement = screen.getByRole('img');
     expect(imageElement).toBeInTheDocument();
 
-    const inputElement = screen.getByRole('textbox');
-    expect(inputElement).toBeInTheDocument()
+    const inputElementFirstName = screen.getByRole('textbox', {name: 'Prénom'});
+    expect(inputElementFirstName).toBeInTheDocument()
+
+    const inputElementLastName = screen.getByRole('textbox', {name: 'Nom'});
+    expect(inputElementLastName).toBeInTheDocument()
 
     const selectElement = screen.getByRole('combobox');
     expect(selectElement).toBeInTheDocument()
 
-    const checkboxElement = screen.getByRole('checkbox');
-    expect(checkboxElement).toBeInTheDocument();
+    const inputCheckboxTerms = screen.getByRole('checkbox', { name: /J'accepte les termes et conditions/i});
+    expect(inputCheckboxTerms).toBeInTheDocument();
+
+    const inputCheckboxNewsLetter = screen.getByRole('checkbox', {name: /Je m'abonne à la news letter/i});
+    expect(inputCheckboxNewsLetter).toBeInTheDocument();
 
     const buttonElement = screen.getByRole('button');
     expect(buttonElement).toBeInTheDocument()
