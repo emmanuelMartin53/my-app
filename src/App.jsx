@@ -1,8 +1,9 @@
 
 import './App.css'
-import GetByRole from './components/Queries/GetByRole';
-import GetByLabelText from './components/Queries/GetByLabelText';
-import GetByPlaceholderText from './components/Queries/getByPlaceholderText';
+// import GetByRole from './components/Queries/GetByRole';
+// import GetByLabelText from './components/Queries/GetByLabelText';
+// import GetByPlaceholderText from './components/Queries/getByPlaceholderText';
+import GetByText from './components/Queries/GetByText'
 
 const App = () => {
 
@@ -10,7 +11,8 @@ const App = () => {
     <div>
       {/* <GetByRole /> */}
       {/* <GetByLabelText /> */}
-      <GetByPlaceholderText />
+      {/* <GetByPlaceholderText /> */}
+      <GetByText />
     </div>
 
   )

@@ -18,11 +18,8 @@ const GetByLabelText = () => {
               <input aria-labelledby="username-label" />
 
             </div>
-
           </div>
-        <div>
 
-        </div>
 
           <div>
             <label>
