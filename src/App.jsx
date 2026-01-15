@@ -1,14 +1,16 @@
 
 import './App.css'
 import GetByRole from './components/Queries/GetByRole';
-import GetByLabelTest from './components/Queries/GetByLabelTest';
+import GetByLabelText from './components/Queries/GetByLabelText';
+import GetByPlaceholderText from './components/Queries/getByPlaceholderText';
 
 const App = () => {
 
   return (
     <div>
-      <GetByRole />
-      <GetByLabelTest />
+      {/* <GetByRole /> */}
+      {/* <GetByLabelText /> */}
+      <GetByPlaceholderText />
     </div>
 
   )

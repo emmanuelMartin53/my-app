@@ -1,6 +1,6 @@
 
 
-const GetByLabelTest = () => {
+const GetByLabelText = () => {
   return (
       <div>
         <form>
@@ -22,10 +22,6 @@ const GetByLabelTest = () => {
           </div>
         <div>
 
-          <div>
-            <label id="username-label">Username</label>
-            <input aria-labelledby="username-label" />
-          </div>
         </div>
 
           <div>
@@ -57,4 +53,4 @@ const GetByLabelTest = () => {
   )
 }
 
-export default GetByLabelTest;
+export default GetByLabelText;
