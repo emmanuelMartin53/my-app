@@ -4,7 +4,7 @@ const GetByText = () => {
   return (
       <>
         <input type="button" value="Changer la couleur" />
-        <p>Veuillez indiquer votre identité</p>
+        <p>Veuillez indiquer votre identité </p>
         <form>
             <div>
               <label htmlFor="firstName" >Prénom  </label>
