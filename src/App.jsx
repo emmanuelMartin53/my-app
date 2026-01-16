@@ -1,6 +1,7 @@
 
 import './App.css'
-import GetByTestId from './components/Queries/GetByTestId'
+import ManualQuery from './components/Queries/ManualQuery'
+// import GetByTestId from './components/Queries/GetByTestId'
 // import GetByTitle from './components/Queries/GetByTitle'
 // import GetByAltText from './components/Queries/GetByAltText'
 // import GetByRole from './components/Queries/GetByRole';
@@ -20,7 +21,8 @@ const App = () => {
       {/* <GetByDisplayValue /> */}
       {/* <GetByAltText /> */}
       {/* <GetByTitle /> */}
-      <GetByTestId />
+      {/* <GetByTestId /> */}
+      <ManualQuery />
     </div>
 
   )
