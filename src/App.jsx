@@ -1,7 +1,8 @@
 
 // import { useState } from 'react'
 import './App.css'
-import QueryByRole from './components/Queries/QueryByRole'
+import FindByRole from './components/Queries/FindByRole'
+// import QueryByRole from './components/Queries/QueryByRole'
 // import GetAllByRole from './components/Queries/GetAllByRole'
 // import GetAllByTitle from './components/Queries/GetAllByTitle'
 
@@ -16,7 +17,8 @@ const App = () => {
     <div className='App'>
       {/* <GetAllByRole btns={btns}/> */}
       {/* <GetAllByTitle */}
-      <QueryByRole />
+      {/* <QueryByRole /> */}
+      <FindByRole />
     </div>
 
   )

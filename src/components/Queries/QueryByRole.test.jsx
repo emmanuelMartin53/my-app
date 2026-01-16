@@ -13,7 +13,8 @@ describe('GetBy Vs QueryBy', () => {
     const buttonThemeLight = screen.queryByRole('button', {name: "Light"});
     // expect(buttonThemeLight).not.toBeInTheDocument()
     // expect(buttonThemeLight).toBeFalsy()
-    expect(buttonThemeLight).not.toBeTruthy()
+    // expect(buttonThemeLight).not.toBeTruthy()
+    expect(buttonThemeLight).toBeNull()
 
 
 
