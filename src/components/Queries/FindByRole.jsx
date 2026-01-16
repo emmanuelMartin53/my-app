@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react"
+import chien from '../../assets/chien.jpg'
 
 const FindByRole = () => {
 
   const [isDark, setIsDark] = useState(false)
+  const [isAvailable, setIsAvailable] = useState(true)
 
 
   useEffect(() => {
       setTimeout(() => {
         setIsDark(true)
+        setIsAvailable(false)
       }, 2000);
   }, [])
 
@@ -16,6 +19,16 @@ const FindByRole = () => {
   return (
     <div style={{background: isDark && "grey"}}>
         {btn}
+
+        <div>
+          { isAvailable &&  <img
+              src={chien}
+              alt="Image d'un chien"
+              width="400"
+            />}
+        </div>
+
+
         <p className="container">Veuillez indiquer votre identité </p>
         <form>
             <div>
