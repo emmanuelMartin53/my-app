@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import './App.css'
 import GetAllByRole from './components/Queries/GetAllByRole'
+import GetAllByTitle from './components/Queries/GetAllByTitle'
 
 
 
@@ -12,7 +13,8 @@ const App = () => {
 
   return (
     <div className='App'>
-      <GetAllByRole btns={btns}/>
+      {/* <GetAllByRole btns={btns}/> */}
+      <GetAllByTitle />
     </div>
 
   )

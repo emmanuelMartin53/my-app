@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { describe, expect } from "vitest";
 import GetAllByRole from "./GetAllByRole";
 
+// Aller voir sur JEST les différents matchers et sur Github
 
 describe("Test to learn GetAllByRole", () => {
 
