@@ -11,7 +11,6 @@ describe('GetBy Vs QueryBy', () => {
     expect(buttonThemeDark).toBeInTheDocument()
   })
 
-
     test('Check if image is not in the document', async () => {
     render(<FindByRole />)
       // await waitForElementToBeRemoved(() => screen.queryByRole("img"), {timeout: 3000})
@@ -21,7 +20,5 @@ describe('GetBy Vs QueryBy', () => {
       await waitFor(() => {
         expect(screen.queryByRole("img")).not.toBeInTheDocument()
       }, {timeout: 3000})
-
   })
-
 })

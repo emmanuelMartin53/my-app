@@ -11,12 +11,11 @@ const GetByLabelText = () => {
               <label htmlFor="lastName">Nom  </label>
               <input type="text" id="lastName"/>
             </div>
-          <div>
 
+          <div>
             <div>
               <label id="username-label">Username </label>
               <input aria-labelledby="username-label" />
-
             </div>
           </div>
 
@@ -42,8 +41,6 @@ const GetByLabelText = () => {
               Animal préféré
               <textarea />
           </label>
-
-
             <button>Valider</button>
         </form>
       </div>
