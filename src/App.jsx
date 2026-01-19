@@ -2,6 +2,7 @@
 // import { useState } from 'react'
 import './App.css'
 import FindByRole from './components/Queries/FindByRole'
+import IncrementCount from './components/userInteractions/IncrementCount'
 // import QueryByRole from './components/Queries/QueryByRole'
 // import GetAllByRole from './components/Queries/GetAllByRole'
 // import GetAllByTitle from './components/Queries/GetAllByTitle'
@@ -18,7 +19,8 @@ const App = () => {
       {/* <GetAllByRole btns={btns}/> */}
       {/* <GetAllByTitle */}
       {/* <QueryByRole /> */}
-      <FindByRole />
+      {/* <FindByRole /> */}
+      <IncrementCount />
     </div>
 
   )
