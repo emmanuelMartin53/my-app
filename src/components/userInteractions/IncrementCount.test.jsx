@@ -45,7 +45,6 @@ describe('Learn Mouse User Interactions', () => {
 
     const headingElementH1 = screen.getByRole("heading");
     expect(headingElementH1).toBeInTheDocument()
-
     const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/});
     expect(buttonElement).toBeInTheDocument()
 
@@ -56,9 +55,25 @@ describe('Learn Mouse User Interactions', () => {
 
     const displayValueH1 = screen.getByRole("heading");
     expect(displayValueH1).toHaveTextContent("0")
-
     const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/});
     expect(buttonElement).toHaveTextContent("Vous avez cliqué 0 fois")
 
+  })
+
+   test("Initial color 'orange' for button", () => {
+    render(<IncrementCount />)
+
+    const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/});
+    expect(buttonElement).toHaveStyle({backgroundColor: 'rgb(255, 165, 0)'})
+  })
+
+
+  test("display color 'blue' for button", async () => {
+    render(<IncrementCount />)
+
+    const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/});
+    await user.click(buttonElement)
+    expect(buttonElement).toHaveTextContent("Vous avez cliqué 1 fois")
+    expect(buttonElement).toHaveStyle({backgroundColor: 'rgb(0, 0, 255)'})
   })
 })
