@@ -38,7 +38,7 @@ Les mouvements de la souris
 
 describe('Learn Mouse User Interactions', () => {
 
-  test("Compteur, bouton et checkbox s'affichent correctement", () => {
+  test("Compteur, bouton et checkbox s'affichent dans le DOM", () => {
     render(<IncrementCount />)
 
     const headingElementH1 = screen.getByRole("heading");
@@ -51,28 +51,16 @@ describe('Learn Mouse User Interactions', () => {
 
   })
 
-  test('Elements render correctly display 0 before click', () => {
+  test('Avant le clic, le bouton et le comteur affichent 0 & bouton désactivé', () => {
     render(<IncrementCount />)
-
     const displayValueH1 = screen.getByRole("heading");
     expect(displayValueH1).toHaveTextContent("0")
+
     const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/i});
     expect(buttonElement).toHaveTextContent("Vous avez cliqué 0 fois")
-
-  })
-
-  test("Bouton désactivé avant le clic", () => {
-    render(<IncrementCount />)
-    const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/i});
-    expect(buttonElement).toHaveTextContent("Vous avez cliqué 0 fois")
-    expect(buttonElement).not.toBeEnabled()
-  })
-
-
-  test("Initial color 'orange' for button", () => {
-    render(<IncrementCount />)
-    const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/i});
+    expect(buttonElement).toBeDisabled()
     expect(buttonElement).toHaveStyle({backgroundColor: 'rgb(255, 165, 0)'})
+
   })
 
 
@@ -114,6 +102,31 @@ describe('Learn Mouse User Interactions', () => {
   //     expect(buttonElement).toHaveStyle({backgroundColor: 'rgb(255, 165, 0)'})
   // })
 
+
+  test("Afficher le bouton après que le checkbox soit coché , ensuite le cacher après checkbox décoché", async () => {
+    const user = userEvent.setup();
+    render(<IncrementCount />)
+
+    const checkbox = screen.getByRole("checkbox", {name: /j'accepte les termes et conditions/i});
+    await user.click(checkbox)
+    expect(checkbox).toBeChecked()
+
+    const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/i});
+    expect(buttonElement).toBeEnabled()
+
+    await user.click(checkbox)
+    expect(checkbox).not.toBeChecked()
+    expect(buttonElement).toBeDisabled()
+
+
+    await user.dblClick(checkbox)
+    expect(checkbox).not.toBeChecked()
+    expect(buttonElement).toBeDisabled()
+
+  })
+
+
+
   test("Compteur et bouton affichent 3 après un clic + un dblClick + couleur du bouton change en bleu", async () => {
     const user = userEvent.setup();
     render(<IncrementCount />)
@@ -135,5 +148,8 @@ describe('Learn Mouse User Interactions', () => {
     expect(buttonElement).toHaveTextContent("Vous avez cliqué 3 fois");
     expect(headingElement).toHaveTextContent('3')
     expect(buttonElement).toHaveStyle({backgroundColor: 'rgb(0, 0, 255)'})
+
+    await user.click(checkbox)
+    expect(buttonElement).toBeDisabled()
   })
 })
