@@ -82,19 +82,37 @@ describe('Learn Mouse User Interactions', () => {
   })
 
 
-    test("display color 'orange' for button after 2 click", async () => {
-      render(<IncrementCount />)
+  // test("display color 'orange' for button after 2 click", async () => {
+  //     render(<IncrementCount />)
 
-      const user = userEvent.setup();
+  //     const user = userEvent.setup();
 
-      const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/});
-      await user.dblClick(buttonElement)
-      expect(buttonElement).toHaveTextContent("Vous avez cliqué 2 fois")
+  //     const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/});
+  //     await user.dblClick(buttonElement)
+  //     expect(buttonElement).toHaveTextContent("Vous avez cliqué 2 fois")
 
-      const headingElement = screen.getByRole('heading')
-      expect(headingElement).toHaveTextContent('2')
+  //     const headingElement = screen.getByRole('heading')
+  //     expect(headingElement).toHaveTextContent('2')
 
-      expect(buttonElement).toHaveStyle({backgroundColor: 'rgb(255, 165, 0)'})
+  //     expect(buttonElement).toHaveStyle({backgroundColor: 'rgb(255, 165, 0)'})
+  // })
+
+  test("Compteur et bouton affichent 3 après un clic + un dblClick + couleur du bouton change en bleu", async () => {
+    render(<IncrementCount />)
+
+    const user = userEvent.setup();
+
+    const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/});
+    await user.click(buttonElement)
+    expect(buttonElement).toHaveTextContent("Vous avez cliqué 1 fois")
+
+    const headingElement = screen.getByRole('heading')
+    expect(headingElement).toHaveTextContent('1')
+    expect(buttonElement).toHaveStyle({backgroundColor: 'rgb(0, 0, 255)'})
+
+    await user.dblClick(buttonElement)
+    expect(buttonElement).toHaveTextContent("Vous avez cliqué 3 fois");
+    expect(headingElement).toHaveTextContent('3')
+    expect(buttonElement).toHaveStyle({backgroundColor: 'rgb(0, 0, 255)'})
   })
-
 })
