@@ -38,13 +38,16 @@ Les mouvements de la souris
 
 describe('Learn Mouse User Interactions', () => {
 
-  test('Elements render correctly', () => {
+  test("Compteur, bouton et checkbox s'affichent correctement", () => {
     render(<IncrementCount />)
 
     const headingElementH1 = screen.getByRole("heading");
     expect(headingElementH1).toBeInTheDocument()
     const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/});
     expect(buttonElement).toBeInTheDocument()
+    const checkbox = screen.getByRole("checkbox", {name: /j'accepte les termes et conditions/i});
+    expect(checkbox).toBeInTheDocument()
+    expect(checkbox).not.toBeChecked()
 
   })
 
@@ -53,25 +56,36 @@ describe('Learn Mouse User Interactions', () => {
 
     const displayValueH1 = screen.getByRole("heading");
     expect(displayValueH1).toHaveTextContent("0")
-    const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/});
+    const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/i});
     expect(buttonElement).toHaveTextContent("Vous avez cliqué 0 fois")
 
   })
 
+  test("Bouton désactivé avant le clic", () => {
+    render(<IncrementCount />)
+    const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/i});
+    expect(buttonElement).toHaveTextContent("Vous avez cliqué 0 fois")
+    expect(buttonElement).not.toBeEnabled()
+  })
+
+
   test("Initial color 'orange' for button", () => {
     render(<IncrementCount />)
-
-    const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/});
+    const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/i});
     expect(buttonElement).toHaveStyle({backgroundColor: 'rgb(255, 165, 0)'})
   })
 
 
   test("display color 'blue' for button", async () => {
-    render(<IncrementCount />)
-
     const user = userEvent.setup();
+    render(<IncrementCount />)
+    const checkbox = screen.getByRole("checkbox", {name: /j'accepte les termes et conditions/i});
+    await user.click(checkbox)
 
-    const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/});
+
+    const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/i});
+    expect(buttonElement).toBeEnabled()
+
     await user.click(buttonElement)
     expect(buttonElement).toHaveTextContent("Vous avez cliqué 1 fois")
 
@@ -79,6 +93,9 @@ describe('Learn Mouse User Interactions', () => {
     expect(headingElement).toHaveTextContent('1')
 
     expect(buttonElement).toHaveStyle({backgroundColor: 'rgb(0, 0, 255)'})
+
+
+
   })
 
 
@@ -98,11 +115,15 @@ describe('Learn Mouse User Interactions', () => {
   // })
 
   test("Compteur et bouton affichent 3 après un clic + un dblClick + couleur du bouton change en bleu", async () => {
+    const user = userEvent.setup();
     render(<IncrementCount />)
 
-    const user = userEvent.setup();
+    const checkbox = screen.getByRole("checkbox", {name: /j'accepte les termes et conditions/i});
+    await user.click(checkbox)
 
-    const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/});
+    const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/i});
+    expect(buttonElement).toBeEnabled()
+
     await user.click(buttonElement)
     expect(buttonElement).toHaveTextContent("Vous avez cliqué 1 fois")
 
