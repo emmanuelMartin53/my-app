@@ -13,7 +13,8 @@ const IncrementCount = () => {
 
   const [count, setCount] = useState(0)
   const [btnColor, setBtnColor] = useState("orange")
-  const [isChecked, setIsChecked ] = useState(false)
+  const [isChecked, setIsChecked] = useState(false)
+  const [showPopup, setShowPopup] = useState(false)
 
 
   const color = btnColor === "orange" ? "blue" : "orange";
@@ -21,10 +22,15 @@ const IncrementCount = () => {
   const handleClick = () => {
     setCount(count +1)
     setBtnColor(color)
-
-
   }
 
+  const handleMouseOver = () => {
+    setShowPopup(true)
+  }
+
+  const handleMouseOut = () => {
+    setShowPopup(false)
+  }
 
   return (
     <div>
@@ -36,7 +42,17 @@ const IncrementCount = () => {
           checked={isChecked}
           onChange={(event) => setIsChecked(event.target.checked)}
         />
-        <label htmlFor="accept-terms">J'accepte les termes et conditions</label>
+        <label
+          htmlFor="accept-terms">
+            {" "}J'accepte
+            <span
+              style={{color: "blue"}}
+              onMouseOver={handleMouseOver}
+              onMouseOut={handleMouseOut}
+            >
+             les termes et conditions
+           </span>
+          </label>
       </div>
 
       <button
@@ -49,6 +65,21 @@ const IncrementCount = () => {
       >
           Vous avez cliqué {count} fois
         </button>
+
+      {
+        showPopup && (
+          <div className="popup">
+            <p >
+              Lorem ipsum dolor sit amet consectetur,
+              adipisicing elit. Adipisci fugit id facere a voluptas explicabo quae dicta
+              voluptatum natus possimus nobis harum tempora sapiente voluptatem reiciendis,
+              totam cum perspiciatis molestias.
+            </p>
+          </div>
+        )
+      }
+
+
     </div>
   )
 }

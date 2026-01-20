@@ -40,3 +40,16 @@
 .read-the-docs {
   color: #888;
 }
+
+.popup {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  min-height: 50px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 0 90% #AAA;
+}

@@ -30,8 +30,7 @@ Les mouvements de la souris
 - unhover
 
 2) Pointer APIs
-*********************
-
+ Voir la doc : https://testing-library.com/docs/user-event/pointer
 */
 
 
