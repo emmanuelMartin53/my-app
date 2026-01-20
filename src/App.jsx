@@ -1,7 +1,7 @@
 
 // import { useState } from 'react'
 import './App.css'
-import FindByRole from './components/Queries/FindByRole'
+// import FindByRole from './components/Queries/FindByRole'
 import IncrementCount from './components/userInteractions/IncrementCount'
 // import QueryByRole from './components/Queries/QueryByRole'
 // import GetAllByRole from './components/Queries/GetAllByRole'

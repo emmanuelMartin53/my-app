@@ -10,7 +10,7 @@ import GetByDisplayValue from './GetByDisplayValue'
 describe('GetByDisplayValue', () => {
 
   test('Elements rendus correctement', () => {
-    renugoyigfigder(<GetByDisplayValue />)
+    render(<GetByDisplayValue />)
 
 
     const displayFirstnameValue = screen.getByDisplayValue('Stan');

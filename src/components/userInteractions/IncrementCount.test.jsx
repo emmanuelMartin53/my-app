@@ -51,13 +51,12 @@ describe('Learn Mouse User Interactions', () => {
   })
 
     test('Elements render correctly display 0 before click', () => {
-    render(<IncrementCount />)
+      render(<IncrementCount />)
 
-    const displayValueH1 = screen.getByRole("heading");
-    expect(displayValueH1).toHaveTextContent("0")
-    const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/});
-    expect(buttonElement).toHaveTextContent("Vous avez cliqué 0 fois")
-
+      const displayValueH1 = screen.getByRole("heading");
+      expect(displayValueH1).toHaveTextContent("0")
+      const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/});
+      expect(buttonElement).toHaveTextContent("Vous avez cliqué 0 fois")
   })
 
    test("Initial color 'orange' for button", () => {
@@ -68,12 +67,36 @@ describe('Learn Mouse User Interactions', () => {
   })
 
 
-  test("display color 'blue' for button", async () => {
+  test("display color 'blue' and 1 for button with click", async () => {
     render(<IncrementCount />)
 
     const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/});
     await user.click(buttonElement)
     expect(buttonElement).toHaveTextContent("Vous avez cliqué 1 fois")
     expect(buttonElement).toHaveStyle({backgroundColor: 'rgb(0, 0, 255)'})
+
+    const headingElement = screen.getByRole("heading");
+    expect(headingElement).toHaveTextContent("1")
   })
+
+  // test("Display 1 with click on button", () => {
+  //   render(<IncrementCount />)
+
+  //     const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/});
+  //     fireEvent.click(buttonElement)
+  //     expect(buttonElement).toHaveTextContent("Vous avez cliqué 1 fois");
+
+  //     const headingElement = screen.getByRole("heading");
+  //     expect(headingElement).toHaveTextContent("1")
+  // })
+
+
+
+  // test("Display color 'orange' for button with dbleclick", async () => {
+  //   render(<IncrementCount />)
+
+  //   const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/});
+  //   await user.dblClick(buttonElement)
+  //   expect(buttonElement).toHaveTextContent("Vous avez cliqué 2 fois")
+  // })
 })
