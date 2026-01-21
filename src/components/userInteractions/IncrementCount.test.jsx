@@ -176,7 +176,23 @@ describe('Learn Mouse User Interactions', () => {
     await user.unhover(termsConditions)
 
     expect(popup).not.toBeInTheDocument()
+  })
 
+  test("Focus s'effectue sur checkBox après TAB Ensuite, sur le bouton après checkbox coché", async () => {
+    const user = userEvent.setup()
+    render(<IncrementCount />)
 
+    const checkbox = screen.getByRole("checkbox", {name: /j'accepte les termes et conditions/i});
+    const buttonElement = screen.getByRole("button", {name: /Vous avez cliqué \d+ fois/i});
+    expect(checkbox).not.toHaveFocus()
+    expect(buttonElement).not.toHaveFocus()
+
+    // Méthode Tab
+    await user.tab()
+    expect(checkbox).toHaveFocus()
+
+    await user.click(checkbox)
+    await user.tab()
+    expect(buttonElement).toHaveFocus()
   })
 })
