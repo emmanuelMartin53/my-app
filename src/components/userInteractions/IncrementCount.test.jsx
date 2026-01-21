@@ -151,4 +151,32 @@ describe('Learn Mouse User Interactions', () => {
     await user.click(checkbox)
     expect(buttonElement).toBeDisabled()
   })
+
+
+  test("le popup est caché avant le MouseOver", () => {
+    render(<IncrementCount />)
+
+    const popup = screen.queryByText(/fugit id facere/i)
+    expect(popup).not.toBeInTheDocument()
+    expect(popup).toBeNull()
+  })
+
+
+  test("le popup s'affiche avec le MouseOver et s'efface après le MouseOut", async () => {
+    const user = userEvent.setup()
+    render(<IncrementCount />)
+
+    //Hover
+    const termsConditions = screen.getByText(/les termes et conditions/i)
+    expect(termsConditions).toBeInTheDocument()
+    await user.hover(termsConditions)
+
+    const popup = screen.queryByText(/fugit id facere/i)
+    expect(popup).toBeInTheDocument()
+    await user.unhover(termsConditions)
+
+    expect(popup).not.toBeInTheDocument()
+
+
+  })
 })

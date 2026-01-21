@@ -24,35 +24,32 @@ const IncrementCount = () => {
     setBtnColor(color)
   }
 
-  const handleMouseOver = () => {
-    setShowPopup(true)
-  }
+  const handleMouseOver = () => setShowPopup(true)
 
-  const handleMouseOut = () => {
-    setShowPopup(false)
-  }
+
+  const handleMouseOut = () => setShowPopup(false)
+
 
   return (
     <div>
       <h1>{count}</h1>
       <div>
+      <label>
         <input
           id="accept-terms"
           type="checkbox"
           checked={isChecked}
           onChange={(event) => setIsChecked(event.target.checked)}
         />
-        <label
-          htmlFor="accept-terms">
-            {" "}J'accepte
-            <span
-              style={{color: "blue"}}
-              onMouseOver={handleMouseOver}
-              onMouseOut={handleMouseOut}
-            >
-             les termes et conditions
-           </span>
-          </label>
+        J'accepte{" "}
+        <span
+          style={{ color: "blue" }}
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        >
+          les termes et conditions
+        </span>
+      </label>
       </div>
 
       <button
@@ -69,7 +66,7 @@ const IncrementCount = () => {
       {
         showPopup && (
           <div className="popup">
-            <p >
+            <p>
               Lorem ipsum dolor sit amet consectetur,
               adipisicing elit. Adipisci fugit id facere a voluptas explicabo quae dicta
               voluptatum natus possimus nobis harum tempora sapiente voluptatem reiciendis,
@@ -78,7 +75,6 @@ const IncrementCount = () => {
           </div>
         )
       }
-
 
     </div>
   )
